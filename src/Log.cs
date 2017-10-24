@@ -23,7 +23,7 @@ namespace SmartLog
 
         public override string ToString()
         {
-            return string.Format("[{0}] -> [{1}]", Timestamp, Data);
+            return $"{{'Timestamp': '{Timestamp.ToString("yyyy-MM-ddTHH:mm:ss.fffffffzzz")}', 'LogType': '{LogType}', 'Data': '{Data}'}}";
         }
     }
 }

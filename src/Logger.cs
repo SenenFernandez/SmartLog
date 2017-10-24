@@ -46,6 +46,7 @@ namespace SmartLog
 
         protected override void DoUninitialize()
         {
+            Dequeue();
             IsLogging = false;
             worker.Set();
             worker.Close();
@@ -61,11 +62,6 @@ namespace SmartLog
         public void Dispose()
         {
             Uninitialize();
-            if (worker != null)
-            {
-                worker.Dispose();
-                worker = null;
-            }
         }
 
         public void Save<T>(T value, LogType logType)
@@ -91,8 +87,7 @@ namespace SmartLog
                 {
                     while (!queue.IsEmpty && IsLogging)
                     {
-                        Log log;
-                        queue.TryDequeue(out log);
+                        queue.TryDequeue(out Log log);
                         if (log != null)
                         {
                             list.Add(log);
@@ -126,10 +121,7 @@ namespace SmartLog
                 {
                     values.ForEach(outfile.WriteLine);
                 }
-                if (Logged != null)
-                {
-                    Logged.Invoke(fileName, new LoggerEventArgs(values));
-                }
+                Logged?.Invoke(fileName, new LoggerEventArgs(values));
             }
         }
     }

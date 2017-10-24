@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SfZip</id>
+    <version>1.0.0.0</version>
+    <authors>Senen Fernandez</authors>
+    <owners>Senen Fernandez</owners>
+    <licenseUrl>http://senenfernandez.com</licenseUrl>
+    <projectUrl>http://senenfernandez.com</projectUrl>
+    <iconUrl>http://senenfernandez.com</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Zip utility</description>
+    <releaseNotes>Public release.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Zip</tags>
+  </metadata>
+</package>
